@@ -1,133 +1,74 @@
 # Proxy-dlls
 
-A collection of proxy DLL projects used for game modding, research, debugging, and framework development.
+## About
+
+This repository is simply a place to explain my approach to using proxy DLLs and why I've continued to use them throughout many of my projects.
+
+Proxy DLLs have become one of my favorite techniques for learning, experimenting, and building software. They allow me to interact with applications in a way that feels less intrusive than directly modifying executables while still giving me the flexibility to add new functionality, debugging tools, logging systems, or custom frameworks.
+
+For me, it's never just been about making something work. It's about understanding how software works behind the scenes and finding ways to build on top of existing systems without completely replacing them.
+
+---
 
 ## Why I Use Proxy DLLs
 
-Many games automatically load specific DLL files from their game directory before loading the real system version. A proxy DLL takes advantage of this behavior by acting as a middle layer between the game and the original library.
+I use proxy DLLs because they provide a simple and reliable way to introduce custom code into an application while allowing the original software to continue functioning as intended.
 
-This allows custom code to run as soon as the game starts without modifying the game's executable.
+Instead of modifying an executable directly, a proxy DLL acts as a bridge between the application and the original library. This allows me to initialize my own code, perform custom setup, and then pass control back to the original DLL.
 
-Using a proxy DLL provides several advantages:
+Over time I've found this approach to be:
 
-* No executable patching required
-* Loads automatically when the game starts
-* Easier to distribute and update
-* Works with many different games
-* Useful for logging, debugging, and research
-* Can load additional plugins and modules
-* Can intercept and modify game functions
-* Allows custom frameworks to initialize early
+* Easier to maintain
+* Easier to update
+* Easier to debug
+* Less invasive than executable patching
+* More flexible across different projects
 
-## How My Setup Works
+Most importantly, it allows me to experiment without completely replacing the original software.
 
-The game starts normally.
+---
 
-The game attempts to load a DLL such as:
+## Why I Preserve Original Functionality
 
-* steam_api.dll
-* dinput8.dll
-* xinput1_3.dll
-* winmm.dll
-* version.dll
-* dsound.dll
+One thing that separates my approach from many others is that I usually try to preserve as much of the original functionality as possible.
 
-Instead of loading the original library directly, it loads the proxy DLL.
+When I build a proxy DLL, I typically load the original library, forward its exports, and allow the software to continue operating normally. My additions are intended to exist alongside the original code rather than completely replacing it.
 
-The proxy DLL then:
+This isn't always the fastest approach, and it certainly isn't always the simplest, but it aligns with how I prefer to develop.
 
-1. Loads the original DLL from the system or backup location.
-2. Resolves all required exports.
-3. Forwards calls back to the original DLL.
-4. Initializes custom code.
-5. Loads plugins, hooks, patches, or debugging tools.
+I like knowing that:
 
-Flow example:
+* Original features still work
+* Original behavior is preserved
+* Compatibility remains intact
+* Existing functionality isn't unnecessarily removed
 
-Game.exe
+In many ways, I see proxy DLLs as extensions rather than replacements.
 
-↓
+---
 
-Proxy DLL
+## A Personal Philosophy
 
-↓
+I understand that some people may view this style of development differently, especially when it comes to reverse engineering, modification, or software research.
 
-Custom Framework
+My goal has never been to erase the original work of developers or completely take control of someone else's software. Instead, my interest has always been in learning, experimenting, researching, preserving, and building upon existing systems.
 
-↓
+The software should still be recognizable.
 
-Original DLL
+The original functionality should still be there.
 
-↓
+My code should enhance the experience, not replace it.
 
-Game Continues Normally
+That philosophy has influenced nearly every proxy DLL project I've worked on and remains the reason I continue using this approach today.
 
-## Typical Uses
+---
 
-### Research
+## Closing Thoughts
 
-* Function tracing
-* Memory inspection
-* Network analysis
-* File loading analysis
+This repository isn't meant to be a framework, toolkit, or collection of releases.
 
-### Modding
+It's simply a small explanation of why I use proxy DLLs, why I preserve original functionality whenever possible, and the mindset that guides many of my projects.
 
-* Custom loaders
-* Plugin systems
-* Asset replacement
-* Script loading
-* Quality of life features
+At the end of the day, I build things because I'm curious about how they work.
 
-### Development
-
-* Debug consoles
-* Logging systems
-* Diagnostics
-* Framework testing
-
-## Example Startup Sequence
-
-1. Game launches.
-2. Game loads proxy DLL.
-3. Proxy DLL loads original DLL.
-4. Custom initialization runs.
-5. Hooks and patches are installed.
-6. Original functionality is preserved.
-7. Game continues normally.
-
-## Goals
-
-This repository exists to document and archive various proxy DLL implementations and techniques used in personal projects.
-
-The focus is on:
-
-* Learning
-* Reverse engineering research
-* Framework development
-* Modding tools
-* Preservation projects
-
-## Repository Structure
-
-```text
-Proxy-dlls/
-├── steam_api/
-├── dinput8/
-├── xinput/
-├── common/
-├── examples/
-└── docs/
-```
-
-## Notes
-
-Different games load different DLLs during startup. Some projects use steam_api.dll while others use dinput8.dll, xinput, winmm, or other commonly loaded libraries.
-
-The best DLL to proxy depends on the target application and how early initialization is required.
-
-## Disclaimer
-
-This repository is intended for educational purposes, software research, compatibility testing, preservation efforts, and modding development.
-
-Users are responsible for complying with all applicable laws, licenses, and terms of service when using any code or techniques contained in this repository.
+Proxy DLLs just happen to be one of my favorite ways to explore that curiosity.
