@@ -2,73 +2,80 @@
 
 ## About
 
-This repository is simply a place to explain my approach to using proxy DLLs and why I've continued to use them throughout many of my projects.
+I made this repository to talk about how I use DLLs and why I like them so much.
 
-Proxy DLLs have become one of my favorite techniques for learning, experimenting, and building software. They allow me to interact with applications in a way that feels less intrusive than directly modifying executables while still giving me the flexibility to add new functionality, debugging tools, logging systems, or custom frameworks.
+Proxy DLLs are really useful for me when I want to learn about software try out things and build new programs. They let me work with applications without changing the program and I can still add new features, tools to help me debug systems to log information or my own frameworks.
 
-For me, it's never just been about making something work. It's about understanding how software works behind the scenes and finding ways to build on top of existing systems without completely replacing them.
+I do not just want to make something work I want to understand how it works behind the scenes. I want to find ways to build on top of what's already there without throwing it all away.
 
 ---
 
 ## Why I Use Proxy DLLs
 
-I use proxy DLLs because they provide a simple and reliable way to introduce custom code into an application while allowing the original software to continue functioning as intended.
+I use proxy DLLs because they are a way to add my own code to a program without breaking the original software.
 
-Instead of modifying an executable directly, a proxy DLL acts as a bridge between the application and the original library. This allows me to initialize my own code, perform custom setup, and then pass control back to the original DLL.
+Of changing the main program a proxy DLL acts like a bridge between the program and the original library. This lets me start my code do some custom setup and then let the original DLL take over.
 
-Over time I've found this approach to be:
+Over time I have found that this way is:
 
-* Easier to maintain
-* Easier to update
-* Easier to debug
-* Less invasive than executable patching
-* More flexible across different projects
+* easier to keep track of
 
-Most importantly, it allows me to experiment without completely replacing the original software.
+* easier to update
+
+* easier to debug
+
+* less likely to cause problems
+
+* flexible for different projects
+
+Most importantly it lets me try new things without changing the original software.
 
 ---
 
 ## Why I Preserve Original Functionality
 
-One thing that separates my approach from many others is that I usually try to preserve as much of the original functionality as possible.
+One thing that is different about my approach is that I try to keep much of the original functionality as I can.
 
-When I build a proxy DLL, I typically load the original library, forward its exports, and allow the software to continue operating normally. My additions are intended to exist alongside the original code rather than completely replacing it.
+When I make a proxy DLL I usually load the library and let the program work normally. My additions are meant to work alongside the code not replace it.
 
-This isn't always the fastest approach, and it certainly isn't always the simplest, but it aligns with how I prefer to develop.
+This is not always the way and it is not always the easiest but it is how I like to work.
 
 I like knowing that:
 
-* Original features still work
-* Original behavior is preserved
-* Compatibility remains intact
-* Existing functionality isn't unnecessarily removed
+* the original features still work
 
-In many ways, I see proxy DLLs as extensions rather than replacements.
+* the original behavior is still there
+
+* the program is still compatible
+
+* the original functionality is not removed
+
+I think of proxy DLLs as additions, not replacements.
 
 ---
 
 ## A Personal Philosophy
 
-I understand that some people may view this style of development differently, especially when it comes to reverse engineering, modification, or software research.
+I know some people might see this way of working as different especially when it comes to reverse engineering or modifying software.
 
-My goal has never been to erase the original work of developers or completely take control of someone else's software. Instead, my interest has always been in learning, experimenting, researching, preserving, and building upon existing systems.
+My Goal is not to re-design the work of the original developers, nor to take over their software. I just want to learn, try things, research, preserve and build on what is already there.
 
 The software should still be recognizable.
 
 The original functionality should still be there.
 
-My code should enhance the experience, not replace it.
+My code should make the program better not replace it.
 
-That philosophy has influenced nearly every proxy DLL project I've worked on and remains the reason I continue using this approach today.
+That is why I keep using proxy DLLs.
 
 ---
 
 ## Closing Thoughts
 
-This repository isn't meant to be a framework, toolkit, or collection of releases.
+This repository is not a collection of tools or programs.
 
-It's simply a small explanation of why I use proxy DLLs, why I preserve original functionality whenever possible, and the mindset that guides many of my projects.
+It is a small explanation of why I use proxy DLLs why I try to keep the original functionality and how I think about my projects.
 
-At the end of the day, I build things because I'm curious about how they work.
+I build things because I am curious, about how they work.
 
-Proxy DLLs just happen to be one of my favorite ways to explore that curiosity.
+Proxy DLLs are just one way I like to explore that curiosity.
