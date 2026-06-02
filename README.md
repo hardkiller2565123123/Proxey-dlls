@@ -14,7 +14,7 @@ I do not just want to make something work I want to understand how it works behi
 
 I use proxy DLLs because they are a way to add my own code to a program without breaking the original software.
 
-Of changing the main program a proxy DLL acts like a bridge between the program and the original library. This lets me start my code do some custom setup and then let the original DLL take over.
+with changing the main program a proxy DLL acts like a bridge between the program and the original library. This lets me start my code do some custom setup and then let the original DLL take over.
 
 Over time I have found that this way is:
 
